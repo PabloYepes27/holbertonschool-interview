@@ -2,17 +2,12 @@
 """Lock boxes"""
 
 
-def can_unlock_all(boxes):
-    """Check if all of boxes can be opened"""
-    if not boxes[0] and len(boxes) > 1:
-        return False
-    if len(boxes) == 1:
-        return True
-    keys = {key for box in boxes for key in box}
-    for index, _ in enumerate(boxes[1:], start=1):
-        if index not in keys:
-            return False
-    return True
-
-
-canUnlockAll = can_unlock_all
+def canUnlockAll(boxes):
+    num_boxes = len(boxes)
+    list_keys = boxes[0]
+    box_locked = [False] + [True] * (num_boxes - 1)
+    for key in list_keys:
+        if ((key < num_boxes) and (box_locked[key] is True)):
+            box_locked[key] = False
+            list_keys.extend(boxes[key])
+    return not any(box_locked)
