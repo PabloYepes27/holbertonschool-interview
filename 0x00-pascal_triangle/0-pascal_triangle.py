@@ -1,9 +1,8 @@
 #!/usr/bin/python3
 """ Pascal's Triangle """
-from typing import List
 
 
-def pascal_triangle(n: int) -> List:
+def pascal_triangle(n: int):
     """
     Pascal's Triangle
 
