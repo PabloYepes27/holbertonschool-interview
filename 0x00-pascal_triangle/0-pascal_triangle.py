@@ -15,7 +15,7 @@ def pascal_triangle(n: int) -> List:
     """
     pascal_list = []
     if n <= 0:
-        return pascal_list
+        return [[]]
     pascal_list.append([1])
     for i in range(1, n):
         tmp = [1]
